@@ -12,7 +12,10 @@ export const ChooseAnswer = (props: Props) => {
   return (
     <div style={{ visibility: clickAnswer ? 'visible' : 'hidden' }}>
       {chooseCorrectAnswer && (
-        <div className="text-xl font-bold mt-4">せいかい！すごいぞ！</div>
+        <div className="text-xl font-bold mt-4">
+          せいかい！すごいぞ！
+          <div>つぎのもんだいにすすもう！</div>
+        </div>
       )}
       {chooseWrongAnswer && (
         <div className="mt-4">
