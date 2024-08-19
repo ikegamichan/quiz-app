@@ -19,8 +19,8 @@ export const AnswerButtons = ({
   return answers.map((item, idx) => {
     return (
       <AnswerButton
-        buttonText={item}
         key={idx}
+        buttonText={item}
         value={item}
         chooseAnswer={chooseAnswer}
         setIsClicked={setIsClicked}
