@@ -1,20 +1,22 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { MouseEventHandler } from 'react';
+import { MouseEventHandler, ReactNode } from 'react';
 
 type Props = {
   listItemName: string;
   path: string;
-  mouseEnter?: MouseEventHandler<HTMLDivElement> | undefined;
+  mouseOver?: MouseEventHandler<HTMLDivElement> | undefined;
   mouseLeave?: MouseEventHandler<HTMLDivElement> | undefined;
+  children?: ReactNode;
 };
 
 export const ListItem = ({
   listItemName,
   path,
-  mouseEnter,
+  mouseOver,
   mouseLeave,
+  children,
 }: Props) => {
   const { push } = useRouter();
   return (
@@ -23,10 +25,11 @@ export const ListItem = ({
       onClick={() => {
         push(path);
       }}
-      onMouseEnter={mouseEnter}
+      onMouseOver={mouseOver}
       onMouseLeave={mouseLeave}
     >
       {listItemName}
+      {children}
     </div>
   );
 };

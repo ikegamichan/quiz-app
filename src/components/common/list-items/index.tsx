@@ -7,38 +7,49 @@ type Props = {
   listItems: { id: number; name: string; path: string }[];
 };
 export const ListITems = ({ listItems }: Props) => {
+  const subMenuItems = [
+    { id: 1, name: 'どうぶつ' },
+    { id: 2, name: 'うみのいきもの' },
+    { id: 3, name: 'むし' },
+  ];
   const animalQuizTitle = 'いきものクイズ';
-  const [isMouseEnter, setIsMouseEnter] = useState(false);
+  const [isMouseOver, setIsMouseOver] = useState(false);
 
-  const mouseEnter = () => {
-    setIsMouseEnter(true);
+  const mouseOver = () => {
+    setIsMouseOver(true);
   };
 
   const mouseLeave = () => {
-    setIsMouseEnter(false);
+    setIsMouseOver(false);
   };
 
   return listItems.map((menu) => {
     return menu.name === animalQuizTitle ? (
-      <div>
+      <div key={menu.id}>
         <div className="relative">
           <ListItem
-            key={menu.id}
             listItemName={menu.name}
             path={menu.path}
-            mouseEnter={mouseEnter}
+            mouseOver={mouseOver}
             mouseLeave={mouseLeave}
-          />
-
-          {isMouseEnter && (
-            <div className="absolute right-1/3 w-0 h-0 border-l-[10px] border-r-[10px] border-b-[20px] border-transparent border-b-stone-600">
-              <div className="absolute top-4 -left-6 border rounded-md border-stone-600 bg-stone-600 text-stone-50 solid p-4 w-60">
-                <div>どうぶつクイズ</div>
-                <div>うみのいきものクイズ</div>
-                <div>むしクイズ</div>
+          >
+            {isMouseOver && (
+              <div className="absolute p-4 left-0 rounded-sm  bg-slate-600 text-slate-100 ml-2 cursor-default">
+                <div className="flex text-nowrap gap-4">
+                  {subMenuItems.map((item) => {
+                    return (
+                      <div
+                        key={item.id}
+                        className="p-4 border border-slate-200 bg-slate-600 rounded-sm cursor-pointer"
+                      >
+                        {item.name}
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
-            </div>
-          )}
+            )}
+          </ListItem>
         </div>
       </div>
     ) : (
