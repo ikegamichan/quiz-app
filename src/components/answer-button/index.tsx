@@ -30,7 +30,7 @@ export const AnswerButton = ({
     <button
       value={buttonText}
       onClick={checkingAnswer}
-      className="gap-2 m-2 p-2 bg-amber-400 border-2 rounded-md min-w-32 box-border hover:bg-sky-700 hover:text-white hover:font-bold transition duration-500 ease-in-out"
+      className="py-4 px-2 bg-amber-400 border-2 rounded-md min-w-32 box-border hover:bg-sky-400 hover:text-white hover:font-bold transition duration-300 ease-in-out"
     >
       {buttonText}
     </button>

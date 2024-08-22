@@ -47,29 +47,16 @@ export default function Page() {
       <div className="text-left font-bold text-xl mt-4">{currentPageName}</div>
       <div>
         <div className="w-full select-none">
-          <div className="px-4 py-1 w-fit mb-4 border-2 rounded-xl border-orange-500 bg-orange-100 mt-4">
+          <div className="mx-auto px-4 py-1 w-fit mb-8 border-2 rounded-xl border-orange-500 bg-orange-100 mt-4">
             だい <span className="text-3xl">{questionNumber + 1}</span> もん
           </div>
-
-          <div className="w-full flex  items-center justify-between">
+          <div className="w-full mb-8 flex  items-center justify-around">
             <div className="ml-4">
               <ChangeQuizButton
                 changeQuiz={backToPreviousQuiz}
                 showButton={showPreviousButton}
                 text={'<'}
               />
-            </div>
-            <div>
-              <div>{animalQuizList[questionNumber].question}</div>
-              <div className="flex items-center justify-center mb-4">
-                <AnswerButtons
-                  answers={animalQuizList[questionNumber].answers}
-                  chooseAnswer={animalQuizList[questionNumber].trueAnswer}
-                  setIsClicked={setIsClicked}
-                  setIsAnswerCorrected={setIsAnswerCorrected}
-                  setAnswerValue={setAnswerValue}
-                />
-              </div>
             </div>
             <div className="mr-4">
               <ChangeQuizButton
@@ -79,14 +66,26 @@ export default function Page() {
               />
             </div>
           </div>
-
-          <ChooseAnswer
-            chooseCorrectAnswer={chooseCorrectAnswer}
-            chooseWrongAnswer={chooseWrongAnswer}
-            answerValue={answerValue}
-            clickAnswer={clickAnswer}
-          />
+          <div>
+            <div>{animalQuizList[questionNumber].question}</div>
+            <div className="flex gap-4 pt-2 items-center justify-center mb-4">
+              <AnswerButtons
+                answers={animalQuizList[questionNumber].answers}
+                chooseAnswer={animalQuizList[questionNumber].trueAnswer}
+                setIsClicked={setIsClicked}
+                setIsAnswerCorrected={setIsAnswerCorrected}
+                setAnswerValue={setAnswerValue}
+              />
+            </div>
+          </div>
         </div>
+
+        <ChooseAnswer
+          chooseCorrectAnswer={chooseCorrectAnswer}
+          chooseWrongAnswer={chooseWrongAnswer}
+          answerValue={answerValue}
+          clickAnswer={clickAnswer}
+        />
       </div>
     </div>
   );

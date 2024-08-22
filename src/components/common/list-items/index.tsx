@@ -12,13 +12,13 @@ export const ListITems = ({ listItems }: Props) => {
     { id: 2, name: 'うみのいきもの' },
     { id: 3, name: 'むし' },
   ];
-  const animalQuizTitle = 'いきものクイズ';
-  const [isMouseOver, setIsMouseOver] = useState(false);
 
+  const animalQuizTitle = 'いきものクイズ';
+
+  const [isMouseOver, setIsMouseOver] = useState(false);
   const mouseOver = () => {
     setIsMouseOver(true);
   };
-
   const mouseLeave = () => {
     setIsMouseOver(false);
   };
