@@ -3,7 +3,8 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode", // Prettier をデフォルトフォーマッターに設定
   "editor.codeActionsOnSave": {
     "source.organizeImports": "explicit",
-    "source.fixAll": "explicit"
+    "source.fixAll": "explicit",
+    "source.addMissingImports": true // 不足しているインポートを追加
   },
   "typescript.suggest.autoImports": true, // TypeScript の自動インポートを有効化
   "javascript.suggest.autoImports": true, // JavaScript の自動インポートを有効化
